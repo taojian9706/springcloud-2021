@@ -10,6 +10,14 @@
     <modules>
         <module>cloud-eureka-server7001</module>
         <module>cloud-eureka-server7002</module>
+        <module>cloud-app-module8001</module>
+        <module>cloud-api-common</module>
+        <module>cloud-gateway80</module>
+        <module>cloud-yanghu-module8002</module>
+        <module>cloud-guanli-module8003</module>
+        <module>cloud-jianshe-module8004</module>
+        <module>cloud-yunying-module8005</module>
+        <module>cloud-daping-module8006</module>
     </modules>
     <packaging>pom</packaging>
 
