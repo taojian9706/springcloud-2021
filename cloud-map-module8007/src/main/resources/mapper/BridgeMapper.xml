@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.donglan.dao.BridgeMapper">
+  <resultMap id="BaseResultMap" type="com.donglan.pojo.Bridge">
+    <id column="FID" jdbcType="INTEGER" property="fid" />
+    <result column="CROWID" jdbcType="VARCHAR" property="crowid" />
+    <result column="QLBM" jdbcType="VARCHAR" property="qlbm" />
+    <result column="LXBM" jdbcType="VARCHAR" property="lxbm" />
+    <result column="LXMC" jdbcType="VARCHAR" property="lxmc" />
+    <result column="LDXLH" jdbcType="VARCHAR" property="ldxlh" />
+    <result column="QLMC" jdbcType="VARCHAR" property="qlmc" />
+    <result column="CENTERZH" jdbcType="DOUBLE" property="centerzh" />
+    <result column="AKJF" jdbcType="INTEGER" property="akjf" />
+    <result column="AJCHNXF" jdbcType="INTEGER" property="ajchnxf" />
+    <result column="SZXZQH" jdbcType="VARCHAR" property="szxzqh" />
+    <result column="TBDWDM" jdbcType="VARCHAR" property="tbdwdm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FID, CROWID, QLBM, LXBM, LXMC, LDXLH, QLMC, CENTERZH, AKJF, AJCHNXF, SZXZQH, TBDWDM
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bridge
+    where FID = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bridge
+    where FID = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.donglan.pojo.Bridge">
+    insert into bridge (FID, CROWID, QLBM, 
+      LXBM, LXMC, LDXLH, 
+      QLMC, CENTERZH, AKJF, 
+      AJCHNXF, SZXZQH, TBDWDM
+      )
+    values (#{fid,jdbcType=INTEGER}, #{crowid,jdbcType=VARCHAR}, #{qlbm,jdbcType=VARCHAR}, 
+      #{lxbm,jdbcType=VARCHAR}, #{lxmc,jdbcType=VARCHAR}, #{ldxlh,jdbcType=VARCHAR}, 
+      #{qlmc,jdbcType=VARCHAR}, #{centerzh,jdbcType=DOUBLE}, #{akjf,jdbcType=INTEGER}, 
+      #{ajchnxf,jdbcType=INTEGER}, #{szxzqh,jdbcType=VARCHAR}, #{tbdwdm,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.donglan.pojo.Bridge">
+    insert into bridge
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        FID,
+      </if>
+      <if test="crowid != null">
+        CROWID,
+      </if>
+      <if test="qlbm != null">
+        QLBM,
+      </if>
+      <if test="lxbm != null">
+        LXBM,
+      </if>
+      <if test="lxmc != null">
+        LXMC,
+      </if>
+      <if test="ldxlh != null">
+        LDXLH,
+      </if>
+      <if test="qlmc != null">
+        QLMC,
+      </if>
+      <if test="centerzh != null">
+        CENTERZH,
+      </if>
+      <if test="akjf != null">
+        AKJF,
+      </if>
+      <if test="ajchnxf != null">
+        AJCHNXF,
+      </if>
+      <if test="szxzqh != null">
+        SZXZQH,
+      </if>
+      <if test="tbdwdm != null">
+        TBDWDM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="crowid != null">
+        #{crowid,jdbcType=VARCHAR},
+      </if>
+      <if test="qlbm != null">
+        #{qlbm,jdbcType=VARCHAR},
+      </if>
+      <if test="lxbm != null">
+        #{lxbm,jdbcType=VARCHAR},
+      </if>
+      <if test="lxmc != null">
+        #{lxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="ldxlh != null">
+        #{ldxlh,jdbcType=VARCHAR},
+      </if>
+      <if test="qlmc != null">
+        #{qlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="centerzh != null">
+        #{centerzh,jdbcType=DOUBLE},
+      </if>
+      <if test="akjf != null">
+        #{akjf,jdbcType=INTEGER},
+      </if>
+      <if test="ajchnxf != null">
+        #{ajchnxf,jdbcType=INTEGER},
+      </if>
+      <if test="szxzqh != null">
+        #{szxzqh,jdbcType=VARCHAR},
+      </if>
+      <if test="tbdwdm != null">
+        #{tbdwdm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.donglan.pojo.Bridge">
+    update bridge
+    <set>
+      <if test="crowid != null">
+        CROWID = #{crowid,jdbcType=VARCHAR},
+      </if>
+      <if test="qlbm != null">
+        QLBM = #{qlbm,jdbcType=VARCHAR},
+      </if>
+      <if test="lxbm != null">
+        LXBM = #{lxbm,jdbcType=VARCHAR},
+      </if>
+      <if test="lxmc != null">
+        LXMC = #{lxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="ldxlh != null">
+        LDXLH = #{ldxlh,jdbcType=VARCHAR},
+      </if>
+      <if test="qlmc != null">
+        QLMC = #{qlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="centerzh != null">
+        CENTERZH = #{centerzh,jdbcType=DOUBLE},
+      </if>
+      <if test="akjf != null">
+        AKJF = #{akjf,jdbcType=INTEGER},
+      </if>
+      <if test="ajchnxf != null">
+        AJCHNXF = #{ajchnxf,jdbcType=INTEGER},
+      </if>
+      <if test="szxzqh != null">
+        SZXZQH = #{szxzqh,jdbcType=VARCHAR},
+      </if>
+      <if test="tbdwdm != null">
+        TBDWDM = #{tbdwdm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FID = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.donglan.pojo.Bridge">
+    update bridge
+    set CROWID = #{crowid,jdbcType=VARCHAR},
+      QLBM = #{qlbm,jdbcType=VARCHAR},
+      LXBM = #{lxbm,jdbcType=VARCHAR},
+      LXMC = #{lxmc,jdbcType=VARCHAR},
+      LDXLH = #{ldxlh,jdbcType=VARCHAR},
+      QLMC = #{qlmc,jdbcType=VARCHAR},
+      CENTERZH = #{centerzh,jdbcType=DOUBLE},
+      AKJF = #{akjf,jdbcType=INTEGER},
+      AJCHNXF = #{ajchnxf,jdbcType=INTEGER},
+      SZXZQH = #{szxzqh,jdbcType=VARCHAR},
+      TBDWDM = #{tbdwdm,jdbcType=VARCHAR}
+    where FID = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

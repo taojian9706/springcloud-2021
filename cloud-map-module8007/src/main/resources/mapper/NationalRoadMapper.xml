@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.donglan.dao.NationalRoadMapper">
+  <resultMap id="BaseResultMap" type="com.donglan.pojo.NationalRoad">
+    <id column="FID" jdbcType="INTEGER" property="fid" />
+    <result column="OBJECTID" jdbcType="INTEGER" property="objectid" />
+    <result column="DLBM" jdbcType="VARCHAR" property="dlbm" />
+    <result column="CLASID" jdbcType="INTEGER" property="clasid" />
+    <result column="CLASID92" jdbcType="INTEGER" property="clasid92" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SHAPE_Leng" jdbcType="DOUBLE" property="shapeLeng" />
+    <result column="Shape_Le_1" jdbcType="DOUBLE" property="shapeLe1" />
+    <result column="Shape_Le_2" jdbcType="DOUBLE" property="shapeLe2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FID, OBJECTID, DLBM, CLASID, CLASID92, NAME, SHAPE_Leng, Shape_Le_1, Shape_Le_2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from national_road
+    where FID = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from national_road
+    where FID = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.donglan.pojo.NationalRoad">
+    insert into national_road (FID, OBJECTID, DLBM, 
+      CLASID, CLASID92, NAME, 
+      SHAPE_Leng, Shape_Le_1, Shape_Le_2
+      )
+    values (#{fid,jdbcType=INTEGER}, #{objectid,jdbcType=INTEGER}, #{dlbm,jdbcType=VARCHAR}, 
+      #{clasid,jdbcType=INTEGER}, #{clasid92,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{shapeLeng,jdbcType=DOUBLE}, #{shapeLe1,jdbcType=DOUBLE}, #{shapeLe2,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.donglan.pojo.NationalRoad">
+    insert into national_road
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        FID,
+      </if>
+      <if test="objectid != null">
+        OBJECTID,
+      </if>
+      <if test="dlbm != null">
+        DLBM,
+      </if>
+      <if test="clasid != null">
+        CLASID,
+      </if>
+      <if test="clasid92 != null">
+        CLASID92,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="shapeLeng != null">
+        SHAPE_Leng,
+      </if>
+      <if test="shapeLe1 != null">
+        Shape_Le_1,
+      </if>
+      <if test="shapeLe2 != null">
+        Shape_Le_2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="dlbm != null">
+        #{dlbm,jdbcType=VARCHAR},
+      </if>
+      <if test="clasid != null">
+        #{clasid,jdbcType=INTEGER},
+      </if>
+      <if test="clasid92 != null">
+        #{clasid92,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="shapeLeng != null">
+        #{shapeLeng,jdbcType=DOUBLE},
+      </if>
+      <if test="shapeLe1 != null">
+        #{shapeLe1,jdbcType=DOUBLE},
+      </if>
+      <if test="shapeLe2 != null">
+        #{shapeLe2,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.donglan.pojo.NationalRoad">
+    update national_road
+    <set>
+      <if test="objectid != null">
+        OBJECTID = #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="dlbm != null">
+        DLBM = #{dlbm,jdbcType=VARCHAR},
+      </if>
+      <if test="clasid != null">
+        CLASID = #{clasid,jdbcType=INTEGER},
+      </if>
+      <if test="clasid92 != null">
+        CLASID92 = #{clasid92,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="shapeLeng != null">
+        SHAPE_Leng = #{shapeLeng,jdbcType=DOUBLE},
+      </if>
+      <if test="shapeLe1 != null">
+        Shape_Le_1 = #{shapeLe1,jdbcType=DOUBLE},
+      </if>
+      <if test="shapeLe2 != null">
+        Shape_Le_2 = #{shapeLe2,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where FID = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.donglan.pojo.NationalRoad">
+    update national_road
+    set OBJECTID = #{objectid,jdbcType=INTEGER},
+      DLBM = #{dlbm,jdbcType=VARCHAR},
+      CLASID = #{clasid,jdbcType=INTEGER},
+      CLASID92 = #{clasid92,jdbcType=INTEGER},
+      NAME = #{name,jdbcType=VARCHAR},
+      SHAPE_Leng = #{shapeLeng,jdbcType=DOUBLE},
+      Shape_Le_1 = #{shapeLe1,jdbcType=DOUBLE},
+      Shape_Le_2 = #{shapeLe2,jdbcType=DOUBLE}
+    where FID = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

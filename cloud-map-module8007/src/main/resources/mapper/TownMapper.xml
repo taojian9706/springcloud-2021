@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.donglan.dao.TownMapper">
+  <resultMap id="BaseResultMap" type="com.donglan.pojo.Town">
+    <id column="FID" jdbcType="INTEGER" property="fid" />
+    <result column="CROWID" jdbcType="VARCHAR" property="crowid" />
+    <result column="PRODM" jdbcType="VARCHAR" property="prodm" />
+    <result column="PROMC" jdbcType="VARCHAR" property="promc" />
+    <result column="CITYDM" jdbcType="VARCHAR" property="citydm" />
+    <result column="CITYMC" jdbcType="VARCHAR" property="citymc" />
+    <result column="TOMNDM" jdbcType="VARCHAR" property="tomndm" />
+    <result column="TOWNMC" jdbcType="VARCHAR" property="townmc" />
+    <result column="XZBM" jdbcType="VARCHAR" property="xzbm" />
+    <result column="ZXMC" jdbcType="VARCHAR" property="zxmc" />
+    <result column="CXFL" jdbcType="INTEGER" property="cxfl" />
+    <result column="TDXZ" jdbcType="INTEGER" property="tdxz" />
+    <result column="YXTDLXDJ" jdbcType="VARCHAR" property="yxtdlxdj" />
+    <result column="YXTDLXBM" jdbcType="VARCHAR" property="yxtdlxbm" />
+    <result column="YXTDLXMC" jdbcType="VARCHAR" property="yxtdlxmc" />
+    <result column="TBDWDM" jdbcType="VARCHAR" property="tbdwdm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FID, CROWID, PRODM, PROMC, CITYDM, CITYMC, TOMNDM, TOWNMC, XZBM, ZXMC, CXFL, TDXZ, 
+    YXTDLXDJ, YXTDLXBM, YXTDLXMC, TBDWDM
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from town
+    where FID = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from town
+    where FID = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.donglan.pojo.Town">
+    insert into town (FID, CROWID, PRODM, 
+      PROMC, CITYDM, CITYMC, 
+      TOMNDM, TOWNMC, XZBM, 
+      ZXMC, CXFL, TDXZ, YXTDLXDJ, 
+      YXTDLXBM, YXTDLXMC, TBDWDM
+      )
+    values (#{fid,jdbcType=INTEGER}, #{crowid,jdbcType=VARCHAR}, #{prodm,jdbcType=VARCHAR}, 
+      #{promc,jdbcType=VARCHAR}, #{citydm,jdbcType=VARCHAR}, #{citymc,jdbcType=VARCHAR}, 
+      #{tomndm,jdbcType=VARCHAR}, #{townmc,jdbcType=VARCHAR}, #{xzbm,jdbcType=VARCHAR}, 
+      #{zxmc,jdbcType=VARCHAR}, #{cxfl,jdbcType=INTEGER}, #{tdxz,jdbcType=INTEGER}, #{yxtdlxdj,jdbcType=VARCHAR}, 
+      #{yxtdlxbm,jdbcType=VARCHAR}, #{yxtdlxmc,jdbcType=VARCHAR}, #{tbdwdm,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.donglan.pojo.Town">
+    insert into town
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        FID,
+      </if>
+      <if test="crowid != null">
+        CROWID,
+      </if>
+      <if test="prodm != null">
+        PRODM,
+      </if>
+      <if test="promc != null">
+        PROMC,
+      </if>
+      <if test="citydm != null">
+        CITYDM,
+      </if>
+      <if test="citymc != null">
+        CITYMC,
+      </if>
+      <if test="tomndm != null">
+        TOMNDM,
+      </if>
+      <if test="townmc != null">
+        TOWNMC,
+      </if>
+      <if test="xzbm != null">
+        XZBM,
+      </if>
+      <if test="zxmc != null">
+        ZXMC,
+      </if>
+      <if test="cxfl != null">
+        CXFL,
+      </if>
+      <if test="tdxz != null">
+        TDXZ,
+      </if>
+      <if test="yxtdlxdj != null">
+        YXTDLXDJ,
+      </if>
+      <if test="yxtdlxbm != null">
+        YXTDLXBM,
+      </if>
+      <if test="yxtdlxmc != null">
+        YXTDLXMC,
+      </if>
+      <if test="tbdwdm != null">
+        TBDWDM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="crowid != null">
+        #{crowid,jdbcType=VARCHAR},
+      </if>
+      <if test="prodm != null">
+        #{prodm,jdbcType=VARCHAR},
+      </if>
+      <if test="promc != null">
+        #{promc,jdbcType=VARCHAR},
+      </if>
+      <if test="citydm != null">
+        #{citydm,jdbcType=VARCHAR},
+      </if>
+      <if test="citymc != null">
+        #{citymc,jdbcType=VARCHAR},
+      </if>
+      <if test="tomndm != null">
+        #{tomndm,jdbcType=VARCHAR},
+      </if>
+      <if test="townmc != null">
+        #{townmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xzbm != null">
+        #{xzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="zxmc != null">
+        #{zxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="cxfl != null">
+        #{cxfl,jdbcType=INTEGER},
+      </if>
+      <if test="tdxz != null">
+        #{tdxz,jdbcType=INTEGER},
+      </if>
+      <if test="yxtdlxdj != null">
+        #{yxtdlxdj,jdbcType=VARCHAR},
+      </if>
+      <if test="yxtdlxbm != null">
+        #{yxtdlxbm,jdbcType=VARCHAR},
+      </if>
+      <if test="yxtdlxmc != null">
+        #{yxtdlxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="tbdwdm != null">
+        #{tbdwdm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.donglan.pojo.Town">
+    update town
+    <set>
+      <if test="crowid != null">
+        CROWID = #{crowid,jdbcType=VARCHAR},
+      </if>
+      <if test="prodm != null">
+        PRODM = #{prodm,jdbcType=VARCHAR},
+      </if>
+      <if test="promc != null">
+        PROMC = #{promc,jdbcType=VARCHAR},
+      </if>
+      <if test="citydm != null">
+        CITYDM = #{citydm,jdbcType=VARCHAR},
+      </if>
+      <if test="citymc != null">
+        CITYMC = #{citymc,jdbcType=VARCHAR},
+      </if>
+      <if test="tomndm != null">
+        TOMNDM = #{tomndm,jdbcType=VARCHAR},
+      </if>
+      <if test="townmc != null">
+        TOWNMC = #{townmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xzbm != null">
+        XZBM = #{xzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="zxmc != null">
+        ZXMC = #{zxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="cxfl != null">
+        CXFL = #{cxfl,jdbcType=INTEGER},
+      </if>
+      <if test="tdxz != null">
+        TDXZ = #{tdxz,jdbcType=INTEGER},
+      </if>
+      <if test="yxtdlxdj != null">
+        YXTDLXDJ = #{yxtdlxdj,jdbcType=VARCHAR},
+      </if>
+      <if test="yxtdlxbm != null">
+        YXTDLXBM = #{yxtdlxbm,jdbcType=VARCHAR},
+      </if>
+      <if test="yxtdlxmc != null">
+        YXTDLXMC = #{yxtdlxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="tbdwdm != null">
+        TBDWDM = #{tbdwdm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FID = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.donglan.pojo.Town">
+    update town
+    set CROWID = #{crowid,jdbcType=VARCHAR},
+      PRODM = #{prodm,jdbcType=VARCHAR},
+      PROMC = #{promc,jdbcType=VARCHAR},
+      CITYDM = #{citydm,jdbcType=VARCHAR},
+      CITYMC = #{citymc,jdbcType=VARCHAR},
+      TOMNDM = #{tomndm,jdbcType=VARCHAR},
+      TOWNMC = #{townmc,jdbcType=VARCHAR},
+      XZBM = #{xzbm,jdbcType=VARCHAR},
+      ZXMC = #{zxmc,jdbcType=VARCHAR},
+      CXFL = #{cxfl,jdbcType=INTEGER},
+      TDXZ = #{tdxz,jdbcType=INTEGER},
+      YXTDLXDJ = #{yxtdlxdj,jdbcType=VARCHAR},
+      YXTDLXBM = #{yxtdlxbm,jdbcType=VARCHAR},
+      YXTDLXMC = #{yxtdlxmc,jdbcType=VARCHAR},
+      TBDWDM = #{tbdwdm,jdbcType=VARCHAR}
+    where FID = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

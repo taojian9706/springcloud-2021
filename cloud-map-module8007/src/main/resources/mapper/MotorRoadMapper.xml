@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.donglan.dao.MotorRoadMapper">
+  <resultMap id="BaseResultMap" type="com.donglan.pojo.MotorRoad">
+    <id column="FID" jdbcType="INTEGER" property="fid" />
+    <result column="osm_id" jdbcType="INTEGER" property="osmId" />
+    <result column="fclass" jdbcType="VARCHAR" property="fclass" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="ref" jdbcType="VARCHAR" property="ref" />
+    <result column="oneway" jdbcType="VARCHAR" property="oneway" />
+    <result column="maxspeed" jdbcType="INTEGER" property="maxspeed" />
+    <result column="layer" jdbcType="INTEGER" property="layer" />
+    <result column="bridge" jdbcType="VARCHAR" property="bridge" />
+    <result column="tunnel" jdbcType="VARCHAR" property="tunnel" />
+    <result column="Shape_Leng" jdbcType="DOUBLE" property="shapeLeng" />
+    <result column="length" jdbcType="DOUBLE" property="length" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FID, osm_id, fclass, name, ref, oneway, maxspeed, layer, bridge, tunnel, Shape_Leng, 
+    length
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from motor_road
+    where FID = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from motor_road
+    where FID = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.donglan.pojo.MotorRoad">
+    insert into motor_road (FID, osm_id, fclass, 
+      name, ref, oneway, 
+      maxspeed, layer, bridge, 
+      tunnel, Shape_Leng, length
+      )
+    values (#{fid,jdbcType=INTEGER}, #{osmId,jdbcType=INTEGER}, #{fclass,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{ref,jdbcType=VARCHAR}, #{oneway,jdbcType=VARCHAR}, 
+      #{maxspeed,jdbcType=INTEGER}, #{layer,jdbcType=INTEGER}, #{bridge,jdbcType=VARCHAR}, 
+      #{tunnel,jdbcType=VARCHAR}, #{shapeLeng,jdbcType=DOUBLE}, #{length,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.donglan.pojo.MotorRoad">
+    insert into motor_road
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        FID,
+      </if>
+      <if test="osmId != null">
+        osm_id,
+      </if>
+      <if test="fclass != null">
+        fclass,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="ref != null">
+        ref,
+      </if>
+      <if test="oneway != null">
+        oneway,
+      </if>
+      <if test="maxspeed != null">
+        maxspeed,
+      </if>
+      <if test="layer != null">
+        layer,
+      </if>
+      <if test="bridge != null">
+        bridge,
+      </if>
+      <if test="tunnel != null">
+        tunnel,
+      </if>
+      <if test="shapeLeng != null">
+        Shape_Leng,
+      </if>
+      <if test="length != null">
+        length,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="osmId != null">
+        #{osmId,jdbcType=INTEGER},
+      </if>
+      <if test="fclass != null">
+        #{fclass,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="ref != null">
+        #{ref,jdbcType=VARCHAR},
+      </if>
+      <if test="oneway != null">
+        #{oneway,jdbcType=VARCHAR},
+      </if>
+      <if test="maxspeed != null">
+        #{maxspeed,jdbcType=INTEGER},
+      </if>
+      <if test="layer != null">
+        #{layer,jdbcType=INTEGER},
+      </if>
+      <if test="bridge != null">
+        #{bridge,jdbcType=VARCHAR},
+      </if>
+      <if test="tunnel != null">
+        #{tunnel,jdbcType=VARCHAR},
+      </if>
+      <if test="shapeLeng != null">
+        #{shapeLeng,jdbcType=DOUBLE},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.donglan.pojo.MotorRoad">
+    update motor_road
+    <set>
+      <if test="osmId != null">
+        osm_id = #{osmId,jdbcType=INTEGER},
+      </if>
+      <if test="fclass != null">
+        fclass = #{fclass,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="ref != null">
+        ref = #{ref,jdbcType=VARCHAR},
+      </if>
+      <if test="oneway != null">
+        oneway = #{oneway,jdbcType=VARCHAR},
+      </if>
+      <if test="maxspeed != null">
+        maxspeed = #{maxspeed,jdbcType=INTEGER},
+      </if>
+      <if test="layer != null">
+        layer = #{layer,jdbcType=INTEGER},
+      </if>
+      <if test="bridge != null">
+        bridge = #{bridge,jdbcType=VARCHAR},
+      </if>
+      <if test="tunnel != null">
+        tunnel = #{tunnel,jdbcType=VARCHAR},
+      </if>
+      <if test="shapeLeng != null">
+        Shape_Leng = #{shapeLeng,jdbcType=DOUBLE},
+      </if>
+      <if test="length != null">
+        length = #{length,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where FID = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.donglan.pojo.MotorRoad">
+    update motor_road
+    set osm_id = #{osmId,jdbcType=INTEGER},
+      fclass = #{fclass,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      ref = #{ref,jdbcType=VARCHAR},
+      oneway = #{oneway,jdbcType=VARCHAR},
+      maxspeed = #{maxspeed,jdbcType=INTEGER},
+      layer = #{layer,jdbcType=INTEGER},
+      bridge = #{bridge,jdbcType=VARCHAR},
+      tunnel = #{tunnel,jdbcType=VARCHAR},
+      Shape_Leng = #{shapeLeng,jdbcType=DOUBLE},
+      length = #{length,jdbcType=DOUBLE}
+    where FID = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

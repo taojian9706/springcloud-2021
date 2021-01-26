@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.donglan.dao.BorderMapper">
+  <resultMap id="BaseResultMap" type="com.donglan.pojo.Border">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="object_id" jdbcType="INTEGER" property="objectId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="shape_leng" jdbcType="DECIMAL" property="shapeLeng" />
+    <result column="shape_area" jdbcType="DECIMAL" property="shapeArea" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, object_id, name, shape_leng, shape_area
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from border
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from border
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.donglan.pojo.Border">
+    insert into border (id, object_id, name, 
+      shape_leng, shape_area)
+    values (#{id,jdbcType=INTEGER}, #{objectId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{shapeLeng,jdbcType=DECIMAL}, #{shapeArea,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.donglan.pojo.Border">
+    insert into border
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="shapeLeng != null">
+        shape_leng,
+      </if>
+      <if test="shapeArea != null">
+        shape_area,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="objectId != null">
+        #{objectId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="shapeLeng != null">
+        #{shapeLeng,jdbcType=DECIMAL},
+      </if>
+      <if test="shapeArea != null">
+        #{shapeArea,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.donglan.pojo.Border">
+    update border
+    <set>
+      <if test="objectId != null">
+        object_id = #{objectId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="shapeLeng != null">
+        shape_leng = #{shapeLeng,jdbcType=DECIMAL},
+      </if>
+      <if test="shapeArea != null">
+        shape_area = #{shapeArea,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.donglan.pojo.Border">
+    update border
+    set object_id = #{objectId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      shape_leng = #{shapeLeng,jdbcType=DECIMAL},
+      shape_area = #{shapeArea,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
