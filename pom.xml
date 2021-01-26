@@ -18,6 +18,7 @@
         <module>cloud-jianshe-module8004</module>
         <module>cloud-yunying-module8005</module>
         <module>cloud-daping-module8006</module>
+        <module>cloud-map-module8007</module>
     </modules>
     <packaging>pom</packaging>
 
