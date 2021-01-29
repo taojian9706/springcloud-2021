@@ -1,7 +1,10 @@
 package com.donglan.dao;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.donglan.pojo.Border;
 
+@Mapper
 public interface BorderMapper {
     int deleteByPrimaryKey(Integer id);
 
