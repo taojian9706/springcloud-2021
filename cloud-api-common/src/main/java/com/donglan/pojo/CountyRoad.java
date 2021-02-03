@@ -2,6 +2,8 @@ package com.donglan.pojo;
 
 import java.util.Date;
 
+import com.alibaba.excel.annotation.ExcelIgnore;
+
 public class CountyRoad {
     private Integer fid;
 
@@ -27,6 +29,7 @@ public class CountyRoad {
 
     private Integer qdsfwfjd;
 
+    @ExcelIgnore
     private Integer qdfjdlb;
 
     private String zdmc;
@@ -39,6 +42,7 @@ public class CountyRoad {
 
     private Integer zdsfwfjd;
 
+    @ExcelIgnore
     private Integer zdfjdlb;
 
     private Integer ldjsdj;
@@ -105,9 +109,11 @@ public class CountyRoad {
 
     private Integer dllx;
 
+    @ExcelIgnore
     private Integer ylxbm;
 
-    private Integer ylcmc;
+    @ExcelIgnore
+    private Integer ylxmc;
 
     private Integer yldqdzh;
 
@@ -125,14 +131,17 @@ public class CountyRoad {
 
     private Integer sjcrk;
 
+    @ExcelIgnore
     private Integer jjdzxnd;
 
     private Integer ldmchd;
 
     private Integer gszhylzh;
 
+    @ExcelIgnore
     private Integer ldlwdzhxzd;
 
+    @ExcelIgnore
     private Integer sfagxgljy;
 
     private String picturelis;
@@ -609,12 +618,12 @@ public class CountyRoad {
         this.ylxbm = ylxbm;
     }
 
-    public Integer getYlcmc() {
-        return ylcmc;
+    public Integer getYlxmc() {
+        return ylxmc;
     }
 
-    public void setYlcmc(Integer ylcmc) {
-        this.ylcmc = ylcmc;
+    public void setYlxmc(Integer ylxmc) {
+        this.ylxmc = ylxmc;
     }
 
     public Integer getYldqdzh() {

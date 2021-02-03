@@ -1144,4 +1144,48 @@
       SFNRTJ = #{sfnrtj,jdbcType=INTEGER}
     where FID = #{fid,jdbcType=INTEGER}
   </update>
+
+  <insert id="batchSave" parameterType="collection">
+    insert into county_road(FID, CROWID, LDBM, LXBM, LXMC, LDXLH, XZQH, QDMC, QDZH, QDWZ_JD, QDWZ_WD, QDSFWFJD,
+    QDFJDLB, ZDMC, ZDZH, ZDWZ_JD, ZDWZ_WD, ZDSFWFJD, ZDFJDLB, LDJSDJ, LDLMLX, LDLC, SJLC,
+    LMKD, LJKD, HDSL, SFWCFLD, CF_LXBM, CF_LDXLH, CFLDQDZH, SFXZ, SFDTL, KLHLC, YLHLC,
+    YHLC, SFWCGLD, ZJGJSJ, JCSJ, GYDWDM, GYDWMC, BZ, BGYY, TBDW, TBDWDM, DM, SFQYTC,
+    QYTCLC, TZSJ, SFYGS, CDSL, DLLX, YLXBM, YLCMC, YLDQDZH, YLDZDZH, YLDLC, YQXZXBJ,
+    ZDZP, SJSS, AADT, SJCRK, JJDZXND, LDMCHD, GSZHYLZH, LDLWDZHXZD, SFAGXGLJY, PICTURELIS,
+    XXMC, XMWYBM, JHXMLXBM, JHXMLXMC, SFBCGSXM, LDXMLX, GHSSNF, GHLJYHLC, GHCZDSL, GHCZDLC,
+    LMGSLC, LMGSMJ, ZCGJMCBM, ZCGJFWC, ZCGJNKTNF, LXBH, LXDJHZ, LDXZDJ, TBDWFZR, TBR,
+    TBRDH, SHR, SHRDH, CJSJ, XGSJ, BHCD, CJBJ, SFNRTJ) values
+    <foreach collection="list" item="index" separator=",">
+      (#{index.fid,jdbcType=INTEGER}, #{index.crowid,jdbcType=VARCHAR}, #{index.ldbm,jdbcType=VARCHAR},
+      #{index.lxbm,jdbcType=VARCHAR}, #{index.lxmc,jdbcType=VARCHAR}, #{index.ldxlh,jdbcType=VARCHAR},
+      #{index.xzqh,jdbcType=VARCHAR}, #{index.qdmc,jdbcType=VARCHAR}, #{index.qdzh,jdbcType=DOUBLE}, #{index.qdwzJd,jdbcType=DOUBLE},
+      #{index.qdwzWd,jdbcType=DOUBLE}, #{index.qdsfwfjd,jdbcType=INTEGER}, #{index.qdfjdlb,jdbcType=INTEGER},
+      #{index.zdmc,jdbcType=VARCHAR}, #{index.zdzh,jdbcType=DOUBLE}, #{index.zdwzJd,jdbcType=DOUBLE}, #{index.zdwzWd,jdbcType=DOUBLE},
+      #{index.zdsfwfjd,jdbcType=INTEGER}, #{index.zdfjdlb,jdbcType=INTEGER}, #{index.ldjsdj,jdbcType=INTEGER},
+      #{index.ldlmlx,jdbcType=INTEGER}, #{index.ldlc,jdbcType=DOUBLE}, #{index.sjlc,jdbcType=DOUBLE}, #{index.lmkd,jdbcType=DOUBLE},
+      #{index.ljkd,jdbcType=INTEGER}, #{index.hdsl,jdbcType=INTEGER}, #{index.sfwcfld,jdbcType=INTEGER},
+      #{index.cfLxbm,jdbcType=VARCHAR}, #{index.cfLdxlh,jdbcType=VARCHAR}, #{index.cfldqdzh,jdbcType=REAL},
+      #{index.sfxz,jdbcType=INTEGER}, #{index.sfdtl,jdbcType=INTEGER}, #{index.klhlc,jdbcType=REAL}, #{index.ylhlc,jdbcType=REAL},
+      #{index.yhlc,jdbcType=REAL}, #{index.sfwcgld,jdbcType=INTEGER}, #{index.zjgjsj,jdbcType=INTEGER},
+      #{index.jcsj,jdbcType=INTEGER}, #{index.gydwdm,jdbcType=VARCHAR}, #{index.gydwmc,jdbcType=VARCHAR},
+      #{index.bz,jdbcType=VARCHAR}, #{index.bgyy,jdbcType=VARCHAR}, #{index.tbdw,jdbcType=VARCHAR}, #{index.tbdwdm,jdbcType=VARCHAR},
+      #{index.dm,jdbcType=INTEGER}, #{index.sfqytc,jdbcType=INTEGER}, #{index.qytclc,jdbcType=REAL}, #{index.tzsj,jdbcType=INTEGER},
+      #{index.sfygs,jdbcType=INTEGER}, #{index.cdsl,jdbcType=INTEGER}, #{index.dllx,jdbcType=INTEGER},
+      #{index.ylxbm,jdbcType=INTEGER}, #{index.ylcmc,jdbcType=INTEGER}, #{index.yldqdzh,jdbcType=INTEGER},
+      #{index.yldzdzh,jdbcType=INTEGER}, #{index.yldlc,jdbcType=INTEGER}, #{index.yqxzxbj,jdbcType=INTEGER},
+      #{index.zdzp,jdbcType=REAL}, #{index.sjss,jdbcType=INTEGER}, #{index.aadt,jdbcType=INTEGER}, #{index.sjcrk,jdbcType=INTEGER},
+      #{index.jjdzxnd,jdbcType=INTEGER}, #{index.ldmchd,jdbcType=INTEGER}, #{index.gszhylzh,jdbcType=INTEGER},
+      #{index.ldlwdzhxzd,jdbcType=INTEGER}, #{index.sfagxgljy,jdbcType=INTEGER}, #{index.picturelis,jdbcType=VARCHAR},
+      #{index.xxmc,jdbcType=VARCHAR}, #{index.xmwybm,jdbcType=VARCHAR}, #{index.jhxmlxbm,jdbcType=VARCHAR},
+      #{index.jhxmlxmc,jdbcType=VARCHAR}, #{index.sfbcgsxm,jdbcType=INTEGER}, #{index.ldxmlx,jdbcType=INTEGER},
+      #{index.ghssnf,jdbcType=INTEGER}, #{index.ghljyhlc,jdbcType=INTEGER}, #{index.ghczdsl,jdbcType=INTEGER},
+      #{index.ghczdlc,jdbcType=INTEGER}, #{index.lmgslc,jdbcType=DOUBLE}, #{index.lmgsmj,jdbcType=INTEGER},
+      #{index.zcgjmcbm,jdbcType=VARCHAR}, #{index.zcgjfwc,jdbcType=VARCHAR}, #{index.zcgjnktnf,jdbcType=VARCHAR},
+      #{index.lxbh,jdbcType=VARCHAR}, #{index.lxdjhz,jdbcType=VARCHAR}, #{index.ldxzdj,jdbcType=VARCHAR},
+      #{index.tbdwfzr,jdbcType=VARCHAR}, #{index.tbr,jdbcType=VARCHAR}, #{index.tbrdh,jdbcType=VARCHAR},
+      #{index.shr,jdbcType=VARCHAR}, #{index.shrdh,jdbcType=VARCHAR}, #{index.cjsj,jdbcType=TIMESTAMP},
+      #{index.xgsj,jdbcType=TIMESTAMP}, #{index.bhcd,jdbcType=VARCHAR}, #{index.cjbj,jdbcType=VARCHAR},
+      #{index.sfnrtj,jdbcType=INTEGER})
+    </foreach>
+  </insert>
 </mapper>
